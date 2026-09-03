@@ -6,59 +6,134 @@
   <title>To My Kharoos ❤️</title>
 
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
       font-family: Georgia, serif;
       background: linear-gradient(135deg, #ffe6ee, #fff5f8);
       color: #5a3040;
       overflow: hidden;
     }
 
-    .container {
+    .scene {
+      min-height: 100vh;
+      display: none;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
       padding: 30px;
-      max-width: 600px;
+      animation: fadeIn 1s ease;
+    }
+
+    .scene.active {
+      display: flex;
+    }
+
+    .container {
+      max-width: 700px;
+      width: 100%;
+      padding: 25px;
+      position: relative;
+      z-index: 2;
     }
 
     .heart {
-      font-size: 55px;
+      font-size: 60px;
       animation: heartbeat 1.5s infinite;
     }
 
     h1 {
       font-size: 42px;
+      margin: 18px 0;
+    }
+
+    h2 {
+      font-size: 34px;
       margin: 15px 0;
     }
 
     p {
       font-size: 20px;
-      line-height: 1.7;
+      line-height: 1.8;
+    }
+
+    .small {
+      font-size: 17px;
+      opacity: 0.85;
     }
 
     button {
-      margin-top: 20px;
-      padding: 14px 28px;
+      margin-top: 25px;
+      padding: 14px 30px;
       border: none;
       border-radius: 30px;
       background: #d96b8a;
       color: white;
       font-size: 18px;
+      font-family: Georgia, serif;
       cursor: pointer;
+      box-shadow: 0 6px 18px rgba(180, 80, 110, 0.2);
+      transition: 0.3s;
     }
 
     button:hover {
-      transform: scale(1.05);
+      transform: scale(1.06);
+    }
+
+    .memory-box,
+    .letter-box {
+      background: rgba(255, 255, 255, 0.65);
+      border-radius: 25px;
+      padding: 30px;
+      margin-top: 20px;
+      box-shadow: 0 10px 30px rgba(150, 70, 100, 0.12);
+    }
+
+    .miss-list {
+      text-align: left;
+      display: inline-block;
+      font-size: 20px;
+      line-height: 2;
+      margin-top: 10px;
+    }
+
+    .miss-list span {
+      display: block;
+    }
+
+    .couple {
+      font-size: 75px;
+      margin: 20px;
+      animation: dance 2s infinite ease-in-out;
+    }
+
+    .cake {
+      font-size: 100px;
+      margin: 15px;
+      animation: cakeFloat 2s infinite ease-in-out;
+    }
+
+    .candles {
+      font-size: 45px;
+      letter-spacing: 10px;
+    }
+
+    .final-heart {
+      font-size: 90px;
+      animation: heartbeat 1.2s infinite;
     }
 
     .floating-heart {
-      position: absolute;
+      position: fixed;
       font-size: 20px;
-      animation: float 6s linear infinite;
-      opacity: 0.7;
+      animation: float 6s linear forwards;
+      opacity: 0.65;
+      pointer-events: none;
+      z-index: 1;
     }
 
     @keyframes heartbeat {
@@ -78,45 +153,406 @@
         transform: translateY(-100px);
       }
     }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes dance {
+      0%, 100% {
+        transform: rotate(-6deg) translateY(0);
+      }
+      50% {
+        transform: rotate(6deg) translateY(-12px);
+      }
+    }
+
+    @keyframes cakeFloat {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
   </style>
 </head>
 
 <body>
 
-  <div class="container">
+  <!-- SCENE 1 -->
+  <section class="scene active" id="scene1">
+    <div class="container">
+      <div class="heart">❤️</div>
 
-    <div class="heart">❤️</div>
+      <h1>Hey Kharoos... 👀</h1>
 
-    <h1>Hey Kharoos... 👀</h1>
+      <p>I made something for you... 🥹❤️</p>
 
-    <p>
-      I made something for you... 🥹❤️
-    </p>
+      <p>
+        I know you're miles away right now,<br>
+        but for a little while...<br>
+        come a little closer. 🤍
+      </p>
 
-    <p>
-      I know you're miles away right now,
-      but for a little while...
-      come a little closer. 🤍
-    </p>
+      <button onclick="nextScene(2)">
+        Open your surprise 🎁
+      </button>
+    </div>
+  </section>
 
-    <button onclick="startSurprise()">
-      Open your surprise 🎁
-    </button>
 
-  </div>
+  <!-- SCENE 2 -->
+  <section class="scene" id="scene2">
+    <div class="container">
+      <div class="heart">💌</div>
+
+      <h2>Okay... you're here. 🥹</h2>
+
+      <p>
+        So now there's no going back. 😂❤️
+      </p>
+
+      <p>
+        I made this little corner of the internet<br>
+        just for you.
+      </p>
+
+      <p>
+        Because some people deserve more than<br>
+        just a simple birthday wish. 🤍
+      </p>
+
+      <button onclick="nextScene(3)">Keep going →</button>
+    </div>
+  </section>
+
+
+  <!-- SCENE 3 -->
+  <section class="scene" id="scene3">
+    <div class="container">
+      <div class="cake">🎂</div>
+
+      <h1>Happy Birthday, Kharoos! ❤️</h1>
+
+      <p>
+        Today is about celebrating <b>you.</b>
+      </p>
+
+      <p>
+        And maybe... reminding you<br>
+        just how special you are to me. 🥹
+      </p>
+
+      <button onclick="nextScene(4)">Our little memories 📸</button>
+    </div>
+  </section>
+
+
+  <!-- SCENE 4 -->
+  <section class="scene" id="scene4">
+    <div class="container">
+
+      <div class="heart">📸❤️</div>
+
+      <h2>Our Little Memories</h2>
+
+      <div class="memory-box">
+        <p>
+          Some moments are small...
+          but somehow they become the memories
+          we keep closest to our hearts. 🤍
+        </p>
+
+        <p class="small">
+          Our pictures and little memories will live here. 🥹
+        </p>
+
+        <p>
+          <b>Coming soon... 📷</b>
+        </p>
+      </div>
+
+      <button onclick="nextScene(5)">There's something else... →</button>
+    </div>
+  </section>
+
+
+  <!-- SCENE 5 -->
+  <section class="scene" id="scene5">
+    <div class="container">
+
+      <div class="heart">🥺❤️</div>
+
+      <h2>Things I Miss About You</h2>
+
+      <div class="memory-box">
+        <div class="miss-list">
+          <span>🥺 Your voice</span>
+          <span>💬 Talking to you</span>
+          <span>🤝 <b>Apne hathon mein tumhare hath</b></span>
+          <span>🫂 Tumhare paas bethna</span>
+          <span>❤️ Bas tumhara mere paas hona</span>
+        </div>
+      </div>
+
+      <button onclick="nextScene(6)">If you were here... 🫂</button>
+    </div>
+  </section>
+
+
+  <!-- SCENE 6 -->
+  <section class="scene" id="scene6">
+    <div class="container">
+
+      <div class="couple">🫂</div>
+
+      <h2>If You Were Here...</h2>
+
+      <p>
+        I think I'd just want to hug you first.
+      </p>
+
+      <p>
+        Then hold your hand... 🤝<br>
+        kiss your hand... 💋<br>
+        hold it a little tighter... ❤️<br>
+        and maybe steal a forehead kiss. 🥹
+      </p>
+
+      <button onclick="nextScene(7)">One more thing... →</button>
+    </div>
+  </section>
+
+
+  <!-- SCENE 7 -->
+  <section class="scene" id="scene7">
+    <div class="container">
+
+      <div class="heart">❤️</div>
+
+      <h1>I Just Want You...</h1>
+
+      <p>
+        I just want you to be with me.
+      </p>
+
+      <p>
+        Not only today.<br>
+        Not only on your birthday.
+      </p>
+
+      <p>
+        Just... with me. 🤍
+      </p>
+
+      <button onclick="nextScene(8)">Wait... there's a cake 🎂</button>
+    </div>
+  </section>
+
+
+  <!-- SCENE 8 -->
+  <section class="scene" id="scene8">
+    <div class="container">
+
+      <div class="cake">🎂</div>
+
+      <h2>Your Birthday Cake!</h2>
+
+      <p>
+        But there's one little thing missing...
+      </p>
+
+      <div class="candles" id="candles">
+        🕯️ 🕯️ 🕯️
+      </div>
+
+      <p id="candleText">
+        Light the candles. 🥹
+      </p>
+
+      <button id="candleButton" onclick="lightCandles()">
+        Light the candles 🕯️
+      </button>
+
+      <button
+        id="danceButton"
+        onclick="nextScene(9)"
+        style="display:none;">
+        Now... one slow dance? 👀
+      </button>
+
+    </div>
+  </section>
+
+
+  <!-- SCENE 9 -->
+  <section class="scene" id="scene9">
+    <div class="container">
+
+      <div class="couple">💃🏻❤️🕺🏻</div>
+
+      <h2>Now... one slow dance? 👀</h2>
+
+      <p>
+        But I know...
+      </p>
+
+      <p>
+        <b>slow slow 😂❤️</b>
+      </p>
+
+      <p>
+        Just us.<br>
+        No distance.<br>
+        No miles.<br>
+        Just one little dance. 🤍
+      </p>
+
+      <p class="small">
+        🎶 Meri Aashiqui Ab Tum Hi Ho 🎶
+      </p>
+
+      <button onclick="nextScene(10)">
+        There's something I wrote for you... 💌
+      </button>
+
+    </div>
+  </section>
+
+
+  <!-- SCENE 10 -->
+  <section class="scene" id="scene10">
+    <div class="container">
+
+      <div class="heart">💌</div>
+
+      <h2>A Little Letter For You</h2>
+
+      <div class="letter-box">
+
+        <p>
+          I don't know if words can ever completely explain
+          what you mean to me...
+        </p>
+
+        <p>
+          But if I could give you one thing today,
+          it would be the feeling of knowing
+          that somewhere, someone is thinking about you,
+          missing you, and smiling because you exist. ❤️
+        </p>
+
+        <p>
+          Distance may keep us apart sometimes,
+          but it doesn't change how much
+          I care about you.
+        </p>
+
+        <p>
+          So today, on your birthday,
+          I just want you to know...
+        </p>
+
+        <p>
+          <b>I'm really, really glad that you're in my life. 🥹❤️</b>
+        </p>
+
+      </div>
+
+      <button onclick="nextScene(11)">
+        One last thing... ❤️
+      </button>
+
+    </div>
+  </section>
+
+
+  <!-- FINAL SCENE -->
+  <section class="scene" id="scene11">
+    <div class="container">
+
+      <div class="final-heart">❤️</div>
+
+      <h1>Happy Birthday, My Love. 🎂</h1>
+
+      <p>
+        May your life always be filled with happiness,
+        love, laughter and everything beautiful.
+      </p>
+
+      <p>
+        And remember...
+      </p>
+
+      <h2>
+        Tum mjhe bhhhhttt achy lgte ho. 🥹❤️
+      </h2>
+
+      <p>
+        Always. 🤍
+      </p>
+
+      <div class="heart">❤️</div>
+
+    </div>
+  </section>
+
 
   <script>
-    function startSurprise() {
-      alert("Okay Kharoos... the surprise is just getting started. 😂❤️");
+
+    function nextScene(number) {
+
+      const scenes = document.querySelectorAll(".scene");
+
+      scenes.forEach(scene => {
+        scene.classList.remove("active");
+      });
+
+      const next = document.getElementById("scene" + number);
+
+      if (next) {
+        next.classList.add("active");
+      }
     }
 
+
+    function lightCandles() {
+
+      const candles = document.getElementById("candles");
+      const text = document.getElementById("candleText");
+      const button = document.getElementById("candleButton");
+      const danceButton = document.getElementById("danceButton");
+
+      candles.innerHTML = "✨ 🎂 ✨";
+
+      text.innerHTML =
+        "Yayyy! You made a wish. 🥹❤️";
+
+      button.style.display = "none";
+      danceButton.style.display = "inline-block";
+    }
+
+
     function createHeart() {
+
       const heart = document.createElement("div");
+
       heart.className = "floating-heart";
       heart.innerHTML = "❤️";
 
-      heart.style.left = Math.random() * 100 + "vw";
-      heart.style.animationDuration = (4 + Math.random() * 4) + "s";
+      heart.style.left =
+        Math.random() * 100 + "vw";
+
+      heart.style.animationDuration =
+        (4 + Math.random() * 4) + "s";
 
       document.body.appendChild(heart);
 
@@ -125,7 +561,9 @@
       }, 8000);
     }
 
+
     setInterval(createHeart, 700);
+
   </script>
 
 </body>
