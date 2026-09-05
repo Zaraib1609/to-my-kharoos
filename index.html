@@ -1,16 +1,13 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-
   <meta charset="UTF-8">
-
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <title>To My Kharoos ❤️</title>
 
   <style>
-
     * {
       box-sizing: border-box;
     }
@@ -133,16 +130,14 @@
       animation: heartbeat 1.2s infinite;
     }
 
-    /* =========================
-       MEMORY GALLERY
-    ========================= */
+    /* MEMORY GALLERY */
 
     .gallery {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 12px;
       margin-top: 20px;
-      max-height: 52vh;
+      max-height: 50vh;
       overflow-y: auto;
       padding: 8px;
       border-radius: 20px;
@@ -150,75 +145,61 @@
 
     .gallery img {
       width: 100%;
-      height: 150px;
+      height: 145px;
       object-fit: cover;
       border-radius: 16px;
       box-shadow: 0 5px 15px rgba(150, 70, 100, 0.18);
       transition: 0.35s ease;
       cursor: pointer;
-      background: #fff;
+      background: white;
     }
 
     .gallery img:hover {
-      transform: scale(1.05) rotate(1deg);
-      box-shadow: 0 8px 20px rgba(150, 70, 100, 0.25);
+      transform: scale(1.05);
     }
 
-    /* =========================
-       FEATURE PHOTOS
-    ========================= */
+    /* FEATURE PHOTO */
 
     .feature-photo {
-      width: 260px;
-      height: 260px;
+      width: 250px;
+      height: 250px;
       object-fit: cover;
       border-radius: 25px;
-      margin: 15px auto;
+      margin: 12px auto;
       display: block;
       box-shadow: 0 12px 30px rgba(150, 70, 100, 0.2);
-      border: 5px solid rgba(255, 255, 255, 0.8);
-      transition: 0.4s ease;
+      border: 5px solid rgba(255, 255, 255, 0.85);
     }
 
-    .feature-photo:hover {
-      transform: scale(1.03);
+    .photo-row {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+      margin: 15px 0;
     }
 
-    .photo-frame {
-      background: rgba(255, 255, 255, 0.6);
-      padding: 12px;
-      border-radius: 30px;
-      display: inline-block;
-      box-shadow: 0 10px 30px rgba(150, 70, 100, 0.12);
-      margin: 10px 0;
-    }
-
-    .photo-frame img {
-      width: 280px;
-      height: 280px;
+    .photo-row img {
+      width: 180px;
+      height: 180px;
       object-fit: cover;
       border-radius: 22px;
-      display: block;
+      border: 5px solid rgba(255, 255, 255, 0.85);
+      box-shadow: 0 8px 22px rgba(150, 70, 100, 0.18);
     }
 
-    /* =========================
-       FINAL PHOTO
-    ========================= */
-
     .final-photo {
-      width: 220px;
-      height: 220px;
+      width: 210px;
+      height: 210px;
       object-fit: cover;
       border-radius: 50%;
       border: 7px solid rgba(255, 255, 255, 0.85);
       box-shadow: 0 12px 35px rgba(150, 70, 100, 0.25);
-      margin: 15px auto;
+      margin: 12px auto;
       display: block;
     }
 
-    /* =========================
-       FLOATING HEARTS
-    ========================= */
+    /* FLOATING HEARTS */
 
     .floating-heart {
       position: fixed;
@@ -229,12 +210,7 @@
       z-index: 1;
     }
 
-    /* =========================
-       ANIMATIONS
-    ========================= */
-
     @keyframes heartbeat {
-
       0%, 100% {
         transform: scale(1);
       }
@@ -242,11 +218,9 @@
       50% {
         transform: scale(1.15);
       }
-
     }
 
     @keyframes float {
-
       from {
         transform: translateY(100vh);
       }
@@ -254,11 +228,9 @@
       to {
         transform: translateY(-100px);
       }
-
     }
 
     @keyframes fadeIn {
-
       from {
         opacity: 0;
         transform: translateY(20px);
@@ -268,11 +240,9 @@
         opacity: 1;
         transform: translateY(0);
       }
-
     }
 
     @keyframes dance {
-
       0%, 100% {
         transform: rotate(-6deg) translateY(0);
       }
@@ -280,11 +250,9 @@
       50% {
         transform: rotate(6deg) translateY(-12px);
       }
-
     }
 
     @keyframes cakeFloat {
-
       0%, 100% {
         transform: translateY(0);
       }
@@ -292,12 +260,7 @@
       50% {
         transform: translateY(-10px);
       }
-
     }
-
-    /* =========================
-       MOBILE
-    ========================= */
 
     @media (max-width: 600px) {
 
@@ -323,7 +286,7 @@
 
       .gallery {
         grid-template-columns: repeat(2, 1fr);
-        max-height: 55vh;
+        max-height: 52vh;
       }
 
       .gallery img {
@@ -335,33 +298,22 @@
         height: 220px;
       }
 
-      .photo-frame img {
-        width: 230px;
-        height: 230px;
+      .photo-row img {
+        width: 140px;
+        height: 140px;
       }
 
       .final-photo {
-        width: 180px;
-        height: 180px;
+        width: 175px;
+        height: 175px;
       }
-
-      .final-heart {
-        font-size: 70px;
-      }
-
     }
-
   </style>
-
 </head>
-
 
 <body>
 
-
-  <!-- =========================
-       SCENE 1
-  ========================== -->
+  <!-- SCENE 1 -->
 
   <section class="scene active" id="scene1">
 
@@ -371,9 +323,7 @@
 
       <h1>Hey Kharoos... 👀</h1>
 
-      <p>
-        I made something for you... 🥹❤️
-      </p>
+      <p>I made something for you... 🥹❤️</p>
 
       <p>
         I know you're miles away right now,<br>
@@ -390,9 +340,7 @@
   </section>
 
 
-  <!-- =========================
-       SCENE 2
-  ========================== -->
+  <!-- SCENE 2 -->
 
   <section class="scene" id="scene2">
 
@@ -425,9 +373,7 @@
   </section>
 
 
-  <!-- =========================
-       SCENE 3
-  ========================== -->
+  <!-- SCENE 3 -->
 
   <section class="scene" id="scene3">
 
@@ -455,9 +401,7 @@
   </section>
 
 
-  <!-- =========================
-       SCENE 4 - MEMORY GALLERY
-  ========================== -->
+  <!-- SCENE 4 -->
 
   <section class="scene" id="scene4">
 
@@ -468,41 +412,47 @@
       <h2>Our Little Memories</h2>
 
       <p class="small">
-        13 little pieces of us... 🤍
+        Every picture has its own little story... 🥹❤️
       </p>
 
       <div class="gallery">
 
-        <img src="image1.jpeg" alt="Our memory 1">
+        <!-- Birthday / BUBU 🎂 -->
+        <img src="image4.jpg" alt="Birthday BUBU memory">
 
-        <img src="image2.jpg" alt="Our memory 2">
+        <!-- Bubu Love Dudu 💗 -->
+        <img src="image7.jpg" alt="Bubu Love Dudu">
 
-        <img src="image3.jpg" alt="Our memory 3">
+        <!-- We fight, We talk, We vibe 😂❤️ -->
+        <img src="image8.jpg" alt="We fight, We talk, We vibe">
 
-        <img src="image4.jpg" alt="Our memory 4">
+        <!-- Cake memory 🎂 -->
+        <img src="image13.jpg" alt="Cute cake memory">
 
-        <img src="image5.jpg" alt="Our memory 5">
+        <!-- Pink romantic hug 💕 -->
+        <img src="image9.jpg" alt="Pink romantic hug">
 
-        <img src="image6.png" alt="Our memory 6">
+        <!-- Remaining memories -->
+        <img src="image1.jpeg" alt="Our memory">
 
-        <img src="image7.jpg" alt="Our memory 7">
+        <img src="image2.jpg" alt="Our memory">
 
-        <img src="image8.jpg" alt="Our memory 8">
+        <img src="image3.jpg" alt="Our memory">
 
-        <img src="image9.jpg" alt="Our memory 9">
+        <img src="image5.jpg" alt="Our memory">
 
-        <img src="image10.jpg" alt="Our memory 10">
+        <img src="image6.png" alt="Our memory">
 
-        <img src="image11.jpg" alt="Our memory 11">
+        <img src="image10.jpg" alt="Our memory">
 
-        <img src="image12.jpg" alt="Our memory 12">
+        <img src="image11.jpg" alt="Our memory">
 
-        <img src="image13.jpg" alt="Our memory 13">
+        <img src="image12.jpg" alt="Our memory">
 
       </div>
 
       <p class="small">
-        Every picture has a little piece of my heart. 🥹❤️
+        13 little memories, one very special person. 🤍
       </p>
 
       <button onclick="nextScene(5)">
@@ -514,9 +464,7 @@
   </section>
 
 
-  <!-- =========================
-       SCENE 5
-  ========================== -->
+  <!-- SCENE 5 -->
 
   <section class="scene" id="scene5">
 
@@ -553,9 +501,7 @@
   </section>
 
 
-  <!-- =========================
-       SCENE 6
-  ========================== -->
+  <!-- SCENE 6 -->
 
   <section class="scene" id="scene6">
 
@@ -565,18 +511,36 @@
 
       <h2>If You Were Here...</h2>
 
-      <div class="photo-frame">
-
-        <img
-          src="image6.png"
-          alt="A special memory"
-        >
-
-      </div>
+      <!-- Cuddling -->
+      <img
+        class="feature-photo"
+        src="image2.jpg"
+        alt="Cuddling memory"
+      >
 
       <p>
         I think I'd just want to hug you first.
       </p>
+
+      <!-- Little couple + heart + flower memories -->
+      <div class="photo-row">
+
+        <img
+          src="image3.jpg"
+          alt="Little couple standing together"
+        >
+
+        <img
+          src="image11.jpg"
+          alt="Holding the heart"
+        >
+
+        <img
+          src="image12.jpg"
+          alt="Flower moment"
+        >
+
+      </div>
 
       <p>
         Then hold your hand... 🤝<br>
@@ -594,9 +558,7 @@
   </section>
 
 
-  <!-- =========================
-       SCENE 7
-  ========================== -->
+  <!-- SCENE 7 -->
 
   <section class="scene" id="scene7">
 
@@ -628,9 +590,7 @@
   </section>
 
 
-  <!-- =========================
-       SCENE 8
-  ========================== -->
+  <!-- SCENE 8 -->
 
   <section class="scene" id="scene8">
 
@@ -654,16 +614,14 @@
 
       <button
         id="candleButton"
-        onclick="lightCandles()"
-      >
+        onclick="lightCandles()">
         Light the candles 🕯️
       </button>
 
       <button
         id="danceButton"
         onclick="nextScene(9)"
-        style="display:none;"
-      >
+        style="display:none;">
         Now... one slow dance? 👀
       </button>
 
@@ -672,9 +630,7 @@
   </section>
 
 
-  <!-- =========================
-       SCENE 9
-  ========================== -->
+  <!-- SCENE 9 -->
 
   <section class="scene" id="scene9">
 
@@ -684,14 +640,12 @@
 
       <h2>Now... one slow dance? 👀</h2>
 
-      <div class="photo-frame">
-
-        <img
-          src="image9.jpg"
-          alt="Our special memory"
-        >
-
-      </div>
+      <!-- Super cute cuddly photo -->
+      <img
+        class="feature-photo"
+        src="image6.png"
+        alt="Super cute cuddly memory"
+      >
 
       <p>
         But I know...
@@ -721,9 +675,7 @@
   </section>
 
 
-  <!-- =========================
-       SCENE 10
-  ========================== -->
+  <!-- SCENE 10 -->
 
   <section class="scene" id="scene10">
 
@@ -733,14 +685,19 @@
 
       <h2>A Little Letter For You</h2>
 
-      <div class="photo-frame">
+      <!-- Small romantic illustration -->
+      <img
+        class="feature-photo"
+        src="image10.jpg"
+        alt="Small romantic illustration"
+      >
 
-        <img
-          src="image10.jpg"
-          alt="A special memory"
-        >
-
-      </div>
+      <!-- Cute kitchen / home scene -->
+      <img
+        class="feature-photo"
+        src="image1.jpeg"
+        alt="Cute kitchen home memory"
+      >
 
       <div class="letter-box">
 
@@ -784,9 +741,7 @@
   </section>
 
 
-  <!-- =========================
-       FINAL SCENE
-  ========================== -->
+  <!-- FINAL SCENE -->
 
   <section class="scene" id="scene11">
 
@@ -794,10 +749,11 @@
 
       <div class="final-heart">❤️</div>
 
+      <!-- ARTIST / ARTIST photo 😂❤️ -->
       <img
         class="final-photo"
-        src="image13.jpg"
-        alt="My favorite memory"
+        src="image5.jpg"
+        alt="ARTIST ARTIST memory"
       >
 
       <h1>
@@ -827,9 +783,7 @@
   </section>
 
 
-  <!-- =========================
-       JAVASCRIPT
-  ========================== -->
+  <!-- JAVASCRIPT -->
 
   <script>
 
@@ -899,7 +853,7 @@
 
   </script>
 
-
 </body>
 
 </html>
+```
