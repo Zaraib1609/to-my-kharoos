@@ -68,6 +68,13 @@
       opacity: 0.85;
     }
 
+    .scroll-text {
+      margin: 18px 0 5px;
+      font-size: 19px;
+      font-style: italic;
+      animation: gentleBounce 1.8s infinite ease-in-out;
+    }
+
     button {
       margin-top: 25px;
       padding: 14px 30px;
@@ -105,6 +112,7 @@
 
     .miss-list span {
       display: block;
+      margin-bottom: 5px;
     }
 
     .couple {
@@ -261,6 +269,16 @@
       }
     }
 
+    @keyframes gentleBounce {
+      0%, 100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(7px);
+      }
+    }
+
     @media (max-width: 600px) {
 
       .scene {
@@ -305,6 +323,10 @@
       .final-photo {
         width: 175px;
         height: 175px;
+      }
+
+      .miss-list {
+        font-size: 18px;
       }
     }
   </style>
@@ -414,6 +436,10 @@
         Every picture has its own little story... 🥹❤️
       </p>
 
+      <p class="scroll-text">
+        Scroll down, my love... 🥺👇
+      </p>
+
       <div class="gallery">
 
         <!-- Birthday / BUBU 🎂 -->
@@ -473,23 +499,38 @@
 
       <h2>Things I Miss About You</h2>
 
+      <p class="small">
+        And if you ask me what I miss the most...
+      </p>
+
       <div class="memory-box">
 
         <div class="miss-list">
 
-          <span>🥺 Your voice</span>
+          <span>🥺 Tmhari awaz</span>
 
-          <span>💬 Talking to you</span>
+          <span>💬 Tmhara mujhse baatein karna</span>
 
-          <span>🤝 <b>Apne hathon mein tumhare hath</b></span>
+          <span>🤝 <b>Mere hathon mein tumhare hath</b></span>
 
-          <span>🫂 Tumhare paas bethna</span>
+          <span>🫂 Tmhara mere paas hona</span>
 
-          <span>❤️ Bas tumhara mere paas hona</span>
+          <span>❤️ Tmhara mere paas hona aur mujhse bolte rehna</span>
+
+          <span>😂❤️ Mere mini notes pe dil khol ke hansna</span>
 
         </div>
 
       </div>
+
+      <p>
+        These are the little things I miss...
+        more than I can ever explain. 🥹❤️
+      </p>
+
+      <p>
+        Then hold your hand... 🤝
+      </p>
 
       <button onclick="nextScene(6)">
         If you were here... 🫂
@@ -522,6 +563,7 @@
       </p>
 
       <!-- Little couple + heart + flower memories -->
+
       <div class="photo-row">
 
         <img
@@ -542,8 +584,7 @@
       </div>
 
       <p>
-        Then hold your hand... 🤝<br>
-        kiss your hand... 💋<br>
+        Kiss your hand... 💋<br>
         hold it a little tighter... ❤️<br>
         and maybe steal a forehead kiss. 🥹
       </p>
@@ -640,6 +681,7 @@
       <h2>Now... one slow dance? 👀</h2>
 
       <!-- Super cute cuddly photo -->
+
       <img
         class="feature-photo"
         src="image6.png"
@@ -685,6 +727,7 @@
       <h2>A Little Letter For You</h2>
 
       <!-- Small romantic illustration -->
+
       <img
         class="feature-photo"
         src="image10.jpg"
@@ -692,6 +735,7 @@
       >
 
       <!-- Cute kitchen / home scene -->
+
       <img
         class="feature-photo"
         src="image1.jpeg"
@@ -749,6 +793,7 @@
       <div class="final-heart">❤️</div>
 
       <!-- ARTIST / ARTIST photo 😂❤️ -->
+
       <img
         class="final-photo"
         src="image5.jpg"
