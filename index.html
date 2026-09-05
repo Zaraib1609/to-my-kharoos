@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>To My Kharoos ❤️</title>
 
   <style>
@@ -11,61 +11,109 @@
       box-sizing: border-box;
     }
 
+    html,
     body {
       margin: 0;
-      min-height: 100vh;
+      padding: 0;
+      min-height: 100%;
+    }
+
+    body {
       font-family: Georgia, serif;
-      background: linear-gradient(135deg, #ffe6ee, #fff5f8);
-      color: #5a3040;
-      overflow: hidden;
+      background: linear-gradient(135deg, #fff0f5, #ffe4ec);
+      color: #5b2942;
+      overflow-x: hidden;
     }
 
     .scene {
-      min-height: 100vh;
       display: none;
-      justify-content: center;
+      min-height: 100vh;
+      width: 100%;
+      padding: 45px 20px;
       align-items: center;
+      justify-content: center;
       text-align: center;
-      padding: 30px;
-      animation: fadeIn 1s ease;
-      overflow-y: auto;
+      position: relative;
     }
 
     .scene.active {
       display: flex;
+      animation: fadeIn 0.8s ease;
     }
 
     .container {
-      max-width: 700px;
       width: 100%;
-      padding: 25px;
+      max-width: 720px;
+      margin: auto;
       position: relative;
       z-index: 2;
     }
 
-    .heart {
-      font-size: 60px;
-      animation: heartbeat 1.5s infinite;
-    }
-
     h1 {
       font-size: 42px;
-      margin: 18px 0;
+      margin-bottom: 18px;
+      color: #9e315d;
     }
 
     h2 {
-      font-size: 34px;
-      margin: 15px 0;
+      font-size: 32px;
+      margin-bottom: 18px;
+      color: #9e315d;
     }
 
     p {
       font-size: 20px;
       line-height: 1.8;
+      margin: 15px 0;
     }
 
     .small {
       font-size: 17px;
-      opacity: 0.85;
+    }
+
+    .heart {
+      font-size: 50px;
+      margin-bottom: 10px;
+      animation: heartbeat 1.5s infinite;
+    }
+
+    button {
+      border: none;
+      background: #d85b83;
+      color: white;
+      padding: 14px 28px;
+      border-radius: 30px;
+      font-size: 18px;
+      font-family: Georgia, serif;
+      cursor: pointer;
+      margin-top: 20px;
+      box-shadow: 0 6px 18px rgba(120, 40, 70, 0.2);
+      transition: 0.3s ease;
+    }
+
+    button:hover {
+      transform: scale(1.05);
+      background: #c84770;
+    }
+
+    .memory-box {
+      background: rgba(255, 255, 255, 0.72);
+      padding: 25px;
+      border-radius: 25px;
+      box-shadow: 0 8px 25px rgba(120, 40, 70, 0.12);
+      margin: 25px auto;
+    }
+
+    .miss-list {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      text-align: left;
+    }
+
+    .miss-list span {
+      font-size: 19px;
+      line-height: 1.5;
     }
 
     .scroll-text {
@@ -75,172 +123,99 @@
       animation: gentleBounce 1.8s infinite ease-in-out;
     }
 
-    button {
-      margin-top: 25px;
-      padding: 14px 30px;
-      border: none;
-      border-radius: 30px;
-      background: #d96b8a;
-      color: white;
-      font-size: 18px;
-      font-family: Georgia, serif;
-      cursor: pointer;
-      box-shadow: 0 6px 18px rgba(180, 80, 110, 0.2);
-      transition: 0.3s;
+    .memory-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+      margin: 25px 0;
     }
 
-    button:hover {
-      transform: scale(1.06);
+    .memory-card {
+      background: rgba(255, 255, 255, 0.8);
+      padding: 10px;
+      border-radius: 20px;
+      box-shadow: 0 7px 20px rgba(120, 40, 70, 0.15);
     }
 
-    .memory-box,
-    .letter-box {
-      background: rgba(255, 255, 255, 0.65);
-      border-radius: 25px;
-      padding: 30px;
-      margin-top: 20px;
-      box-shadow: 0 10px 30px rgba(150, 70, 100, 0.12);
-    }
-
-    .miss-list {
-      text-align: left;
-      display: inline-block;
-      font-size: 20px;
-      line-height: 2;
-      margin-top: 10px;
-    }
-
-    .miss-list span {
+    .memory-card img {
+      width: 100%;
+      height: 230px;
+      object-fit: cover;
+      border-radius: 15px;
       display: block;
-      margin-bottom: 5px;
     }
 
-    .couple {
-      font-size: 75px;
-      margin: 20px;
-      animation: dance 2s infinite ease-in-out;
+    .memory-card p {
+      font-size: 16px;
+      margin: 8px 4px;
+    }
+
+    .single-image {
+      width: 100%;
+      max-width: 500px;
+      max-height: 65vh;
+      object-fit: contain;
+      border-radius: 22px;
+      box-shadow: 0 10px 30px rgba(120, 40, 70, 0.2);
+      background: white;
+      padding: 8px;
+      margin: 20px auto;
+      display: block;
+    }
+
+    /* Last picture: show the whole image */
+    .final-image {
+      width: 100%;
+      max-width: 700px;
+      max-height: 75vh;
+      object-fit: contain;
+      border-radius: 20px;
+      display: block;
+      margin: 25px auto;
+      background: white;
+      padding: 8px;
+      box-shadow: 0 10px 30px rgba(120, 40, 70, 0.2);
+    }
+
+    .letter {
+      background: rgba(255, 255, 255, 0.82);
+      padding: 30px;
+      border-radius: 25px;
+      box-shadow: 0 8px 25px rgba(120, 40, 70, 0.12);
+      text-align: left;
+      margin: 25px auto;
+    }
+
+    .letter p {
+      font-size: 18px;
     }
 
     .cake {
-      font-size: 100px;
-      margin: 15px;
-      animation: cakeFloat 2s infinite ease-in-out;
-    }
-
-    .candles {
-      font-size: 45px;
-      letter-spacing: 10px;
-    }
-
-    .final-heart {
       font-size: 90px;
-      animation: heartbeat 1.2s infinite;
+      margin: 20px 0;
     }
 
-    /* MEMORY GALLERY */
-
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
-      margin-top: 20px;
-      max-height: 50vh;
-      overflow-y: auto;
-      padding: 8px;
-      border-radius: 20px;
+    .song-note {
+      font-size: 20px;
+      margin-top: 25px;
+      font-style: italic;
     }
-
-    .gallery img {
-      width: 100%;
-      height: 145px;
-      object-fit: cover;
-      border-radius: 16px;
-      box-shadow: 0 5px 15px rgba(150, 70, 100, 0.18);
-      transition: 0.35s ease;
-      cursor: pointer;
-      background: white;
-    }
-
-    .gallery img:hover {
-      transform: scale(1.05);
-    }
-
-    /* FEATURE PHOTO */
-
-    .feature-photo {
-      width: 250px;
-      height: 250px;
-      object-fit: cover;
-      border-radius: 25px;
-      margin: 12px auto;
-      display: block;
-      box-shadow: 0 12px 30px rgba(150, 70, 100, 0.2);
-      border: 5px solid rgba(255, 255, 255, 0.85);
-    }
-
-    .photo-row {
-      display: flex;
-      justify-content: center;
-      gap: 15px;
-      flex-wrap: wrap;
-      margin: 15px 0;
-    }
-
-    .photo-row img {
-      width: 180px;
-      height: 180px;
-      object-fit: cover;
-      border-radius: 22px;
-      border: 5px solid rgba(255, 255, 255, 0.85);
-      box-shadow: 0 8px 22px rgba(150, 70, 100, 0.18);
-    }
-
-    .final-photo {
-      width: 210px;
-      height: 210px;
-      object-fit: cover;
-      border-radius: 50%;
-      border: 7px solid rgba(255, 255, 255, 0.85);
-      box-shadow: 0 12px 35px rgba(150, 70, 100, 0.25);
-      margin: 12px auto;
-      display: block;
-    }
-
-    /* FLOATING HEARTS */
 
     .floating-heart {
       position: fixed;
-      font-size: 20px;
-      animation: float 6s linear forwards;
-      opacity: 0.65;
+      bottom: -40px;
+      font-size: 24px;
       pointer-events: none;
       z-index: 1;
-    }
-
-    @keyframes heartbeat {
-      0%, 100% {
-        transform: scale(1);
-      }
-
-      50% {
-        transform: scale(1.15);
-      }
-    }
-
-    @keyframes float {
-      from {
-        transform: translateY(100vh);
-      }
-
-      to {
-        transform: translateY(-100px);
-      }
+      animation-name: floatUp;
+      animation-timing-function: linear;
+      animation-fill-mode: forwards;
     }
 
     @keyframes fadeIn {
       from {
         opacity: 0;
-        transform: translateY(20px);
+        transform: translateY(15px);
       }
 
       to {
@@ -249,23 +224,13 @@
       }
     }
 
-    @keyframes dance {
+    @keyframes heartbeat {
       0%, 100% {
-        transform: rotate(-6deg) translateY(0);
+        transform: scale(1);
       }
 
       50% {
-        transform: rotate(6deg) translateY(-12px);
-      }
-    }
-
-    @keyframes cakeFloat {
-      0%, 100% {
-        transform: translateY(0);
-      }
-
-      50% {
-        transform: translateY(-10px);
+        transform: scale(1.12);
       }
     }
 
@@ -279,18 +244,34 @@
       }
     }
 
+    /* Hearts now travel completely above the screen */
+    @keyframes floatUp {
+      0% {
+        transform: translateY(0) scale(0.8);
+        opacity: 0;
+      }
+
+      10% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0.9;
+      }
+
+      90% {
+        opacity: 0.7;
+      }
+
+      100% {
+        transform: translateY(-115vh) scale(1.2);
+        opacity: 0;
+      }
+    }
+
     @media (max-width: 600px) {
-
-      .scene {
-        padding: 15px;
-      }
-
-      .container {
-        padding: 15px;
-      }
-
       h1 {
-        font-size: 32px;
+        font-size: 34px;
       }
 
       h2 {
@@ -301,32 +282,20 @@
         font-size: 18px;
       }
 
-      .gallery {
-        grid-template-columns: repeat(2, 1fr);
-        max-height: 52vh;
+      .memory-grid {
+        grid-template-columns: 1fr;
       }
 
-      .gallery img {
-        height: 135px;
+      .memory-card img {
+        height: 250px;
       }
 
-      .feature-photo {
-        width: 220px;
-        height: 220px;
+      .letter {
+        padding: 22px;
       }
 
-      .photo-row img {
-        width: 140px;
-        height: 140px;
-      }
-
-      .final-photo {
-        width: 175px;
-        height: 175px;
-      }
-
-      .miss-list {
-        font-size: 18px;
+      .final-image {
+        max-height: 70vh;
       }
     }
   </style>
@@ -335,104 +304,80 @@
 <body>
 
   <!-- SCENE 1 -->
-
   <section class="scene active" id="scene1">
-
     <div class="container">
-
       <div class="heart">❤️</div>
 
-      <h1>Hey Kharoos... 👀</h1>
-
-      <p>I made something for you... 🥹❤️</p>
+      <h1>Hey Kharoos...</h1>
 
       <p>
-        I know you're miles away right now,<br>
-        but for a little while...<br>
-        come a little closer. 🤍
+        I made something for you. 🥹❤️
+      </p>
+
+      <p>
+        So please... stay here for a little while.
       </p>
 
       <button onclick="nextScene(2)">
-        Open your surprise 🎁
+        Okay... 👀
       </button>
-
     </div>
-
   </section>
 
 
   <!-- SCENE 2 -->
-
   <section class="scene" id="scene2">
-
     <div class="container">
+      <div class="heart">🥺❤️</div>
 
-      <div class="heart">💌</div>
-
-      <h2>Okay... you're here. 🥹</h2>
+      <h2>Okay... you're here.</h2>
 
       <p>
-        So now there's no going back. 😂❤️
+        Now don't go anywhere.
       </p>
 
       <p>
-        I made this little corner of the internet<br>
-        just for you.
-      </p>
-
-      <p>
-        Because some people deserve more than<br>
-        just a simple birthday wish. 🤍
+        Because this little surprise is only for you. 🤍
       </p>
 
       <button onclick="nextScene(3)">
-        Keep going →
+        Continue ❤️
       </button>
-
     </div>
-
   </section>
 
 
   <!-- SCENE 3 -->
-
   <section class="scene" id="scene3">
-
     <div class="container">
+      <div class="heart">🎂❤️</div>
 
-      <div class="cake">🎂</div>
-
-      <h1>Happy Birthday, Kharoos! ❤️</h1>
+      <h1>Happy Birthday! 🥳</h1>
 
       <p>
-        Today is about celebrating <b>you.</b>
+        To the most kharoos person... 😂❤️
       </p>
 
       <p>
-        And maybe... reminding you<br>
-        just how special you are to me. 🥹
+        But also one of the most special people in my life. 🥹
       </p>
 
       <button onclick="nextScene(4)">
-        Our little memories 📸
+        Come... I have memories for you 📸
       </button>
-
     </div>
-
   </section>
 
 
   <!-- SCENE 4 -->
-
   <section class="scene" id="scene4">
-
     <div class="container">
 
       <div class="heart">📸❤️</div>
 
       <h2>Our Little Memories</h2>
 
-      <p class="small">
+      <p>
         Every picture has its own little story... 🥹❤️
       </p>
 
@@ -440,59 +385,45 @@
         Scroll down, my love... 🥺👇
       </p>
 
-      <div class="gallery">
+      <div class="memory-grid">
 
-        <!-- Birthday / BUBU 🎂 -->
-        <img src="image4.jpg" alt="Birthday BUBU memory">
+        <div class="memory-card">
+          <img src="image4.jpg" alt="Birthday memory">
+          <p>Birthday / BUBU wali picture 🎂❤️</p>
+        </div>
 
-        <!-- Bubu Love Dudu 💗 -->
-        <img src="image7.jpg" alt="Bubu Love Dudu">
+        <div class="memory-card">
+          <img src="image7.jpg" alt="Bubu Love Dudu">
+          <p>Bubu Love Dudu 💗</p>
+        </div>
 
-        <!-- We fight, We talk, We vibe 😂❤️ -->
-        <img src="image8.jpg" alt="We fight, We talk, We vibe">
+        <div class="memory-card">
+          <img src="image8.jpg" alt="Cute memory">
+          <p>We fight, We talk, We vibe... 😂❤️</p>
+        </div>
 
-        <!-- Cake memory 🎂 -->
-        <img src="image13.jpg" alt="Cute cake memory">
+        <div class="memory-card">
+          <img src="image13.jpg" alt="Cake memory">
+          <p>Our cute cake memory 🎂</p>
+        </div>
 
-        <!-- Pink romantic hug 💕 -->
-        <img src="image9.jpg" alt="Pink romantic hug">
-
-        <!-- Remaining memories -->
-        <img src="image1.jpeg" alt="Our memory">
-
-        <img src="image2.jpg" alt="Our memory">
-
-        <img src="image3.jpg" alt="Our memory">
-
-        <img src="image5.jpg" alt="Our memory">
-
-        <img src="image6.png" alt="Our memory">
-
-        <img src="image10.jpg" alt="Our memory">
-
-        <img src="image11.jpg" alt="Our memory">
-
-        <img src="image12.jpg" alt="Our memory">
+        <div class="memory-card">
+          <img src="image9.jpg" alt="Romantic memory">
+          <p>That pink romantic hug... 💕</p>
+        </div>
 
       </div>
 
-      <p class="small">
-        13 little memories, one very special person. 🤍
-      </p>
-
       <button onclick="nextScene(5)">
-        There's something else... →
+        Continue... ❤️
       </button>
 
     </div>
-
   </section>
 
 
   <!-- SCENE 5 -->
-
   <section class="scene" id="scene5">
-
     <div class="container">
 
       <div class="heart">🥺❤️</div>
@@ -511,9 +442,7 @@
 
           <span>💬 Tmhara mujhse baatein karna</span>
 
-          <span>🤝 <b>Mere hathon mein tumhare hath</b></span>
-
-          <span>🫂 Tmhara mere paas hona</span>
+          <span>🤝 Mere hathon mein tumhare hath</span>
 
           <span>❤️ Tmhara mere paas hona aur mujhse bolte rehna</span>
 
@@ -528,89 +457,67 @@
         more than I can ever explain. 🥹❤️
       </p>
 
-      <p>
-        Then hold your hand... 🤝
-      </p>
-
       <button onclick="nextScene(6)">
-        If you were here... 🫂
+        Click ❤️
       </button>
 
     </div>
-
   </section>
 
 
   <!-- SCENE 6 -->
-
   <section class="scene" id="scene6">
-
     <div class="container">
 
-      <div class="couple">🫂</div>
+      <div class="heart">🤍</div>
 
       <h2>If You Were Here...</h2>
 
-      <!-- Cuddling -->
-      <img
-        class="feature-photo"
-        src="image2.jpg"
-        alt="Cuddling memory"
-      >
+      <div class="memory-grid">
 
-      <p>
-        I think I'd just want to hug you first.
-      </p>
+        <div class="memory-card">
+          <img src="image2.jpg" alt="Cuddling memory">
+          <p>Cuddling... 🥹</p>
+        </div>
 
-      <!-- Little couple + heart + flower memories -->
+        <div class="memory-card">
+          <img src="image3.jpg" alt="Couple memory">
+          <p>Just us together. 🤍</p>
+        </div>
 
-      <div class="photo-row">
+        <div class="memory-card">
+          <img src="image11.jpg" alt="Heart memory">
+          <p>Holding the heart... ❤️</p>
+        </div>
 
-        <img
-          src="image3.jpg"
-          alt="Little couple standing together"
-        >
-
-        <img
-          src="image11.jpg"
-          alt="Holding the heart"
-        >
-
-        <img
-          src="image12.jpg"
-          alt="Flower moment"
-        >
+        <div class="memory-card">
+          <img src="image12.jpg" alt="Flower memory">
+          <p>That little flower moment... 🌸</p>
+        </div>
 
       </div>
 
       <p>
         Kiss your hand... 💋<br>
         hold it a little tighter... ❤️<br>
-        and maybe steal a forehead kiss. 🥹
+        and maybe steal a kiss. 🥹
       </p>
 
       <button onclick="nextScene(7)">
-        One more thing... →
+        Continue... 🤍
       </button>
 
     </div>
-
   </section>
 
 
   <!-- SCENE 7 -->
-
   <section class="scene" id="scene7">
-
     <div class="container">
 
       <div class="heart">❤️</div>
 
-      <h1>I Just Want You...</h1>
-
-      <p>
-        I just want you to be with me.
-      </p>
+      <h2>I Just Want You To Be With Me ❤️</h2>
 
       <p>
         Not only today.<br>
@@ -622,212 +529,184 @@
       </p>
 
       <button onclick="nextScene(8)">
-        Wait... there's a cake 🎂
+        Come here... 🥹
       </button>
 
     </div>
-
   </section>
 
 
   <!-- SCENE 8 -->
-
   <section class="scene" id="scene8">
-
     <div class="container">
 
-      <div class="cake">🎂</div>
+      <div class="heart">🎂❤️</div>
 
       <h2>Your Birthday Cake!</h2>
 
-      <p>
-        But there's one little thing missing...
-      </p>
-
-      <div class="candles" id="candles">
-        🕯️ 🕯️ 🕯️
+      <div class="cake" id="candles">
+        🕯️🕯️🕯️🎂🕯️🕯️🕯️
       </div>
 
       <p id="candleText">
-        Light the candles. 🥹
+        Make a wish... ✨
       </p>
 
-      <button
-        id="candleButton"
-        onclick="lightCandles()">
-        Light the candles 🕯️
+      <button id="candleButton" onclick="lightCandles()">
+        Blow the candles 🎂
       </button>
 
       <button
         id="danceButton"
+        style="display: none;"
         onclick="nextScene(9)"
-        style="display:none;">
-        Now... one slow dance? 👀
+      >
+        Continue... 🎶
       </button>
 
     </div>
-
   </section>
 
 
   <!-- SCENE 9 -->
-
   <section class="scene" id="scene9">
-
     <div class="container">
 
-      <div class="couple">💃🏻❤️🕺🏻</div>
+      <div class="heart">🎶❤️</div>
 
       <h2>Now... one slow dance? 👀</h2>
 
-      <!-- Super cute cuddly photo -->
-
-      <img
-        class="feature-photo"
-        src="image6.png"
-        alt="Super cute cuddly memory"
-      >
-
       <p>
-        But I know...
+        Mere pas hote tou zror thora sa dance 😂❤️
       </p>
 
       <p>
-        <b>slow slow 😂❤️</b>
-      </p>
-
-      <p>
+        And I know slow slow 😂❤️ on this song<br>
         Just us.<br>
         No distance.<br>
         No miles.<br>
         Just one little dance. 🤍
       </p>
 
-      <p class="small">
+      <p class="song-note">
         🎶 Meri Aashiqui Ab Tum Hi Ho 🎶
       </p>
 
-      <button onclick="nextScene(10)">
+      <p>
         There's something I wrote for you... 💌
+      </p>
+
+      <button onclick="nextScene(10)">
+        Read it... 💌
       </button>
 
     </div>
-
   </section>
 
 
   <!-- SCENE 10 -->
-
   <section class="scene" id="scene10">
-
     <div class="container">
 
-      <div class="heart">💌</div>
+      <div class="heart">💌❤️</div>
 
       <h2>A Little Letter For You</h2>
 
-      <!-- Small romantic illustration -->
-
       <img
-        class="feature-photo"
-        src="image10.jpg"
-        alt="Small romantic illustration"
+        src="image3.jpg"
+        alt="Our memory"
+        class="single-image"
       >
 
-      <!-- Cute kitchen / home scene -->
-
-      <img
-        class="feature-photo"
-        src="image1.jpeg"
-        alt="Cute kitchen home memory"
-      >
-
-      <div class="letter-box">
+      <div class="letter">
 
         <p>
-          I don't know if words can ever completely explain
-          what you mean to me...
+          My Kharoos,
         </p>
 
         <p>
-          But if I could give you one thing today,
-          it would be the feeling of knowing
-          that somewhere, someone is thinking about you,
-          missing you, and smiling because you exist. ❤️
+          I don't always know how to say everything
+          that's in my heart, but today I wanted to try.
+        </p>
+
+        <p>
+          You mean more to me than these little words
+          could ever explain. ❤️
+        </p>
+
+        <p>
+          I miss the little things.
+          Your voice, your talks, your presence,
+          your silly moments... all of it.
         </p>
 
         <p>
           Distance may keep us apart sometimes,
-          but it doesn't change how much
-          I care about you.
+          but it can never make you less special to me.
         </p>
 
         <p>
-          So today, on your birthday,
-          I just want you to know...
+          So on your birthday, I just want you to know
+          that somewhere, someone is smiling because
+          you exist. 🥹❤️
         </p>
 
         <p>
-          <b>
-            I'm really, really glad that you're in my life. 🥹❤️
-          </b>
+          Happy Birthday, Kharoos. 🎂❤️
         </p>
 
-        <button onclick="nextScene(11)">
-          One last thing... ❤️
-        </button>
+        <p>
+          Always yours. 🤍
+        </p>
 
       </div>
 
-    </div>
+      <button onclick="nextScene(11)">
+        One last thing... ❤️
+      </button>
 
+    </div>
   </section>
 
 
-  <!-- FINAL SCENE -->
-
+  <!-- SCENE 11 — FINAL -->
   <section class="scene" id="scene11">
-
     <div class="container">
 
-      <div class="final-heart">❤️</div>
+      <div class="heart">🎂❤️</div>
 
-      <!-- ARTIST / ARTIST photo 😂❤️ -->
+      <h1>Happy Birthday, My Kharoos! ❤️</h1>
 
       <img
-        class="final-photo"
         src="image5.jpg"
-        alt="ARTIST ARTIST memory"
+        alt="Artist Artist memory"
+        class="final-image"
       >
 
-      <h1>
-        Happy Birthday, My Love,<br>
-        My Man, My Kharoos,<br>
-        My Gandyyy, My Teddy Bear,<br>
-        My World 🎂🥹❤️
-      </h1>
-
       <p>
-        One again, Happiest Birthday Askim ❤️
+        ARTIST / ARTIST 😂❤️
       </p>
 
-      <h2>
-        Uummmaahh 😘❤️
-      </h2>
+      <p>
+        May your smile always stay this beautiful,
+        and may you always have reasons to smile. 🥹
+      </p>
 
-      <div class="heart">❤️</div>
+      <p>
+        I love you more than I know how to explain. ❤️
+      </p>
 
-      <p class="small">
-        No matter the distance...<br>
-        you're always close to my heart. 🤍
+      <p>
+        Happy Birthday once again. 🎂🥳❤️
+      </p>
+
+      <p>
+        — Your Bubu 🤍
       </p>
 
     </div>
-
   </section>
 
-
-  <!-- JAVASCRIPT -->
 
   <script>
 
@@ -843,30 +722,29 @@
 
       if (next) {
         next.classList.add("active");
-      }
 
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth"
+        });
+      }
     }
 
 
     function lightCandles() {
 
       const candles = document.getElementById("candles");
-
       const text = document.getElementById("candleText");
-
       const button = document.getElementById("candleButton");
-
       const danceButton = document.getElementById("danceButton");
 
       candles.innerHTML = "✨ 🎂 ✨";
 
-      text.innerHTML =
-        "Yayyy! You made a wish. 🥹❤️";
+      text.innerHTML = "Yayyy! You made a wish. 🥹❤️";
 
       button.style.display = "none";
 
       danceButton.style.display = "inline-block";
-
     }
 
 
@@ -878,18 +756,16 @@
 
       heart.innerHTML = "❤️";
 
-      heart.style.left =
-        Math.random() * 100 + "vw";
+      heart.style.left = Math.random() * 100 + "vw";
 
       heart.style.animationDuration =
-        (4 + Math.random() * 4) + "s";
+        (5 + Math.random() * 4) + "s";
 
       document.body.appendChild(heart);
 
       setTimeout(() => {
         heart.remove();
-      }, 8000);
-
+      }, 10000);
     }
 
 
@@ -898,5 +774,4 @@
   </script>
 
 </body>
-
 </html>
