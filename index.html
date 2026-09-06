@@ -189,12 +189,29 @@
       font-size: 18px;
     }
 
+    .cake-area {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin: 30px auto;
+    }
+
+    .candles-top {
+      font-size: 65px;
+      line-height: 1;
+      margin-bottom: -8px;
+      letter-spacing: 4px;
+      text-align: center;
+    }
+
     .cake {
-  font-size: 120px;
-  margin: 35px auto;
-  text-align: center;
-  display: block;
-}
+      font-size: 130px;
+      line-height: 1;
+      margin: 0 auto;
+      text-align: center;
+      display: block;
+    }
 
     .song-note {
       font-size: 20px;
@@ -297,11 +314,29 @@
       .final-image {
         max-height: 70vh;
       }
+
+      .candles-top {
+        font-size: 52px;
+      }
+
+      .cake {
+        font-size: 105px;
+      }
     }
   </style>
 </head>
 
 <body>
+
+  <!-- BACKGROUND MUSIC -->
+  <audio id="birthdayMusic" loop>
+    <source src="soft-birthday-piano.mp3" type="audio/mpeg">
+  </audio>
+
+  <audio id="loveSong">
+    <source src="meri-aashiqui-1m38-2m32.mp3" type="audio/mpeg">
+  </audio>
+
 
   <!-- SCENE 1 -->
   <section class="scene active" id="scene1">
@@ -545,8 +580,16 @@
 
       <h2>Your Birthday Cake!</h2>
 
-      <div class="cake" id="candles">
-        🕯️🕯️🕯️🎂🕯️🕯️🕯️
+      <div class="cake-area">
+
+        <div class="candles-top" id="candles">
+          🕯️🕯️🕯️
+        </div>
+
+        <div class="cake">
+          🎂
+        </div>
+
       </div>
 
       <p id="candleText">
@@ -714,7 +757,77 @@
 
   <script>
 
+    const birthdayMusic = document.getElementById("birthdayMusic");
+    const loveSong = document.getElementById("loveSong");
+
+    let musicStarted = false;
+
+    function startBirthdayMusic() {
+
+      if (!musicStarted) {
+        birthdayMusic.volume = 0.35;
+
+        birthdayMusic.play().catch(() => {});
+
+        musicStarted = true;
+      }
+    }
+
+
+    function fadeOutBirthdayMusic(callback) {
+
+      let volume = birthdayMusic.volume;
+
+      const fade = setInterval(() => {
+
+        volume -= 0.05;
+
+        if (volume <= 0) {
+
+          volume = 0;
+
+          birthdayMusic.volume = 0;
+
+          birthdayMusic.pause();
+
+          clearInterval(fade);
+
+          if (callback) {
+            callback();
+          }
+
+        } else {
+
+          birthdayMusic.volume = volume;
+
+        }
+
+      }, 100);
+
+    }
+
+
+    function playLoveSong() {
+
+      loveSong.currentTime = 0;
+      loveSong.volume = 0.75;
+
+      loveSong.play().catch(() => {});
+
+    }
+
+
+    function stopLoveSong() {
+
+      loveSong.pause();
+      loveSong.currentTime = 0;
+
+    }
+
+
     function nextScene(number) {
+
+      startBirthdayMusic();
 
       const scenes = document.querySelectorAll(".scene");
 
@@ -725,30 +838,52 @@
       const next = document.getElementById("scene" + number);
 
       if (next) {
+
         next.classList.add("active");
 
         window.scrollTo({
           top: 0,
           behavior: "smooth"
         });
+
       }
+
+      if (number === 9) {
+
+        fadeOutBirthdayMusic(() => {
+          playLoveSong();
+        });
+
+      }
+
+      if (number === 10 || number === 11) {
+
+        stopLoveSong();
+
+      }
+
     }
 
 
     function lightCandles() {
 
       const candles = document.getElementById("candles");
+
       const text = document.getElementById("candleText");
+
       const button = document.getElementById("candleButton");
+
       const danceButton = document.getElementById("danceButton");
 
-      candles.innerHTML = "✨ 🎂 ✨";
+
+      candles.innerHTML = "✨";
 
       text.innerHTML = "Yayyy! You made a wish. 🥹❤️";
 
       button.style.display = "none";
 
       danceButton.style.display = "inline-block";
+
     }
 
 
@@ -770,6 +905,7 @@
       setTimeout(() => {
         heart.remove();
       }, 10000);
+
     }
 
 
