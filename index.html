@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <title>To My Kharoos ❤️</title>
 
   <style>
@@ -11,182 +10,145 @@
       box-sizing: border-box;
     }
 
-    html,
     body {
       margin: 0;
-      padding: 0;
-      min-height: 100%;
-    }
-
-    body {
+      min-height: 100vh;
       font-family: Georgia, serif;
-      background: linear-gradient(135deg, #fff0f5, #ffe4ec);
-      color: #5b2942;
+      background: linear-gradient(135deg, #fff0f5, #ffe4ec, #fff5f8);
+      color: #4a2632;
       overflow-x: hidden;
     }
 
     .scene {
       display: none;
       min-height: 100vh;
-      width: 100%;
-      padding: 45px 20px;
+      padding: 40px 20px;
+      text-align: center;
       align-items: center;
       justify-content: center;
-      text-align: center;
-      position: relative;
+      animation: fadeIn 1s ease;
     }
 
     .scene.active {
       display: flex;
-      animation: fadeIn 0.8s ease;
     }
 
     .container {
       width: 100%;
-      max-width: 720px;
+      max-width: 850px;
       margin: auto;
-      position: relative;
-      z-index: 2;
     }
 
     h1 {
-      font-size: 42px;
-      margin-bottom: 18px;
-      color: #9e315d;
+      font-size: 3rem;
+      color: #b03060;
+      margin-bottom: 20px;
     }
 
     h2 {
-      font-size: 32px;
-      margin-bottom: 18px;
-      color: #9e315d;
+      font-size: 2.2rem;
+      color: #b03060;
+      margin-bottom: 20px;
     }
 
     p {
-      font-size: 20px;
+      font-size: 1.15rem;
       line-height: 1.8;
-      margin: 15px 0;
-    }
-
-    .small {
-      font-size: 17px;
+      margin: 10px 0;
     }
 
     .heart {
-      font-size: 50px;
-      margin-bottom: 10px;
+      font-size: 70px;
       animation: heartbeat 1.5s infinite;
+      margin-bottom: 20px;
     }
 
     button {
       border: none;
-      background: #d85b83;
+      background: #b03060;
       color: white;
       padding: 14px 28px;
       border-radius: 30px;
-      font-size: 18px;
+      font-size: 1rem;
       font-family: Georgia, serif;
       cursor: pointer;
-      margin-top: 20px;
-      box-shadow: 0 6px 18px rgba(120, 40, 70, 0.2);
+      margin-top: 25px;
       transition: 0.3s ease;
+      box-shadow: 0 5px 15px rgba(176, 48, 96, 0.25);
     }
 
     button:hover {
       transform: scale(1.05);
-      background: #c84770;
-    }
-
-    .memory-box {
-      background: rgba(255, 255, 255, 0.72);
-      padding: 25px;
-      border-radius: 25px;
-      box-shadow: 0 8px 25px rgba(120, 40, 70, 0.12);
-      margin: 25px auto;
-    }
-
-    .miss-list {
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-      text-align: left;
-    }
-
-    .miss-list span {
-      font-size: 19px;
-      line-height: 1.5;
-    }
-
-    .scroll-text {
-      margin: 18px 0 5px;
-      font-size: 19px;
-      font-style: italic;
-      animation: gentleBounce 1.8s infinite ease-in-out;
+      background: #8f244b;
     }
 
     .memory-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 18px;
-      margin: 25px 0;
+      gap: 25px;
+      margin-top: 30px;
     }
 
     .memory-card {
       background: rgba(255, 255, 255, 0.8);
-      padding: 10px;
+      padding: 15px;
       border-radius: 20px;
-      box-shadow: 0 7px 20px rgba(120, 40, 70, 0.15);
+      box-shadow: 0 8px 20px rgba(176, 48, 96, 0.12);
+      transition: 0.3s ease;
+    }
+
+    .memory-card:hover {
+      transform: translateY(-5px);
     }
 
     .memory-card img {
       width: 100%;
-      height: 230px;
+      height: 260px;
       object-fit: cover;
       border-radius: 15px;
-      display: block;
     }
 
     .memory-card p {
-      font-size: 16px;
-      margin: 8px 4px;
+      font-size: 1rem;
+      margin-top: 12px;
+      color: #8f244b;
+      font-weight: bold;
     }
 
-    .single-image {
-      width: 100%;
-      max-width: 500px;
-      max-height: 65vh;
-      object-fit: contain;
-      border-radius: 22px;
-      box-shadow: 0 10px 30px rgba(120, 40, 70, 0.2);
-      background: white;
-      padding: 8px;
-      margin: 20px auto;
-      display: block;
+    .scroll-text {
+      font-size: 0.95rem;
+      color: #9c526d;
+      margin-top: 15px;
+      animation: pulse 2s infinite;
     }
 
-    .final-image {
-      width: 100%;
+    .if-here-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      margin: 30px auto;
       max-width: 700px;
-      max-height: 75vh;
-      object-fit: contain;
+    }
+
+    .if-here-card {
+      background: rgba(255, 255, 255, 0.8);
+      padding: 12px;
       border-radius: 20px;
-      display: block;
-      margin: 25px auto;
-      background: white;
-      padding: 8px;
-      box-shadow: 0 10px 30px rgba(120, 40, 70, 0.2);
+      box-shadow: 0 8px 20px rgba(176, 48, 96, 0.12);
     }
 
-    .letter {
-      background: rgba(255, 255, 255, 0.82);
-      padding: 30px;
-      border-radius: 25px;
-      box-shadow: 0 8px 25px rgba(120, 40, 70, 0.12);
-      text-align: left;
-      margin: 25px auto;
+    .if-here-card img {
+      width: 100%;
+      height: 240px;
+      object-fit: cover;
+      border-radius: 15px;
     }
 
-    .letter p {
-      font-size: 18px;
+    .if-here-card p {
+      font-size: 0.95rem;
+      color: #8f244b;
+      font-weight: bold;
+      margin: 10px 0 5px;
     }
 
     .cake-area {
@@ -213,21 +175,71 @@
       display: block;
     }
 
+    .letter {
+      background: rgba(255, 255, 255, 0.85);
+      padding: 35px 30px;
+      border-radius: 25px;
+      box-shadow: 0 10px 30px rgba(176, 48, 96, 0.15);
+      margin-top: 30px;
+    }
+
+    .letter img {
+      width: 100%;
+      max-width: 350px;
+      max-height: 420px;
+      object-fit: contain;
+      border-radius: 20px;
+      margin-bottom: 25px;
+      background: white;
+      padding: 8px;
+    }
+
+    .letter p {
+      text-align: left;
+      margin: 18px 0;
+    }
+
+    .final-image {
+      width: 100%;
+      max-width: 500px;
+      max-height: 600px;
+      object-fit: contain;
+      border-radius: 20px;
+      background: white;
+      padding: 10px;
+      margin: 20px auto;
+      display: block;
+      box-shadow: 0 10px 30px rgba(176, 48, 96, 0.15);
+    }
+
     .song-note {
-      font-size: 20px;
-      margin-top: 25px;
-      font-style: italic;
+      font-size: 1.35rem;
+      color: #b03060;
+      font-weight: bold;
+      margin: 25px 0;
+    }
+
+    .song-message {
+      margin: 35px auto 10px;
+      max-width: 650px;
+      padding: 25px 20px;
+      background: rgba(255, 255, 255, 0.65);
+      border-radius: 22px;
+      box-shadow: 0 8px 20px rgba(176, 48, 96, 0.08);
+    }
+
+    .song-message p {
+      margin: 8px 0;
+      color: #7d3d54;
     }
 
     .floating-heart {
       position: fixed;
-      bottom: -40px;
-      font-size: 24px;
+      bottom: -30px;
+      font-size: 20px;
       pointer-events: none;
-      z-index: 1;
-      animation-name: floatUp;
-      animation-timing-function: linear;
-      animation-fill-mode: forwards;
+      animation: floatUp linear forwards;
+      z-index: 999;
     }
 
     @keyframes fadeIn {
@@ -247,80 +259,77 @@
         transform: scale(1);
       }
 
+      25% {
+        transform: scale(1.15);
+      }
+
       50% {
+        transform: scale(1);
+      }
+
+      75% {
         transform: scale(1.12);
       }
     }
 
-    @keyframes gentleBounce {
+    @keyframes pulse {
       0%, 100% {
-        transform: translateY(0);
+        opacity: 1;
       }
 
       50% {
-        transform: translateY(7px);
+        opacity: 0.5;
       }
     }
 
     @keyframes floatUp {
       0% {
-        transform: translateY(0) scale(0.8);
-        opacity: 0;
-      }
-
-      10% {
+        transform: translateY(0) scale(1);
         opacity: 1;
       }
 
-      50% {
-        opacity: 0.9;
-      }
-
-      90% {
-        opacity: 0.7;
-      }
-
       100% {
-        transform: translateY(-115vh) scale(1.2);
+        transform: translateY(-110vh) scale(1.5);
         opacity: 0;
       }
     }
 
-    @media (max-width: 600px) {
+    @media (max-width: 700px) {
       h1 {
-        font-size: 34px;
+        font-size: 2.3rem;
       }
 
       h2 {
-        font-size: 27px;
+        font-size: 1.8rem;
       }
 
       p {
-        font-size: 18px;
+        font-size: 1rem;
       }
 
       .memory-grid {
         grid-template-columns: 1fr;
       }
 
-      .memory-card img {
-        height: 250px;
+      .if-here-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
       }
 
-      .letter {
-        padding: 22px;
-      }
-
-      .final-image {
-        max-height: 70vh;
-      }
-
-      .candles-top {
-        font-size: 52px;
+      .if-here-card img {
+        height: 180px;
       }
 
       .cake {
-        font-size: 105px;
+        font-size: 100px;
+      }
+
+      .candles-top {
+        font-size: 50px;
+      }
+
+      .letter {
+        padding: 25px 20px;
       }
     }
   </style>
@@ -328,9 +337,9 @@
 
 <body>
 
-  <!-- BACKGROUND MUSIC -->
+  <!-- MUSIC -->
   <audio id="birthdayMusic" loop>
-    <source src="soft-birthday-piano.mp3" type="audio/mpeg">
+    <source src="birthday-tune-from-video.mp3" type="audio/mpeg">
   </audio>
 
   <audio id="loveSong">
@@ -341,6 +350,7 @@
   <!-- SCENE 1 -->
   <section class="scene active" id="scene1">
     <div class="container">
+
       <div class="heart">❤️</div>
 
       <h1>Hey Kharoos...</h1>
@@ -356,6 +366,7 @@
       <button onclick="nextScene(2)">
         Okay... 👀
       </button>
+
     </div>
   </section>
 
@@ -363,21 +374,23 @@
   <!-- SCENE 2 -->
   <section class="scene" id="scene2">
     <div class="container">
-      <div class="heart">🥺❤️</div>
+
+      <div class="heart">🥹❤️</div>
 
       <h2>Okay... you're here.</h2>
 
       <p>
-        Now don't go anywhere.
+        Then let me start with something simple...
       </p>
 
       <p>
-        Because this little surprise is only for you. 🤍
+        Something I've been waiting to say. ❤️
       </p>
 
       <button onclick="startBirthdayMusic(); nextScene(3)">
         Continue ❤️
       </button>
+
     </div>
   </section>
 
@@ -385,21 +398,23 @@
   <!-- SCENE 3 -->
   <section class="scene" id="scene3">
     <div class="container">
+
       <div class="heart">🎂❤️</div>
 
-      <h1>Happy Birthday! 🥳</h1>
+      <h1>Happy Birthday, Kharoos! 🎂</h1>
 
       <p>
-        To my kharoos person... 😂❤️
+        Today is your day...
       </p>
 
       <p>
-        But also one of the most special people in my life. 🥹
+        And I just wanted to make it a little more special. 🥹❤️
       </p>
 
       <button onclick="nextScene(4)">
-        Come... I have memories for you 📸
+        There's more... 👀
       </button>
+
     </div>
   </section>
 
@@ -433,6 +448,11 @@
         </div>
 
         <div class="memory-card">
+          <img src="image9.jpg" alt="Romantic memory">
+          <p>Always Zaraib 💕</p>
+        </div>
+
+        <div class="memory-card">
           <img src="image8.jpg" alt="Cute memory">
           <p>We fight, We talk, We vibe... 😂❤️</p>
         </div>
@@ -440,11 +460,6 @@
         <div class="memory-card">
           <img src="image13.jpg" alt="Cake memory">
           <p>Happy to uhh to uhh 🎂</p>
-        </div>
-
-        <div class="memory-card">
-          <img src="image9.jpg" alt="Romantic memory">
-          <p>Always Zaraib 💕</p>
         </div>
 
       </div>
@@ -465,30 +480,37 @@
 
       <h2>Things I Miss About You</h2>
 
-      <p class="small">
+      <p>
         And if you ask me what I miss the most...
       </p>
 
-      <div class="memory-box">
+      <p>
+        🥺 Tmhari awaz
+      </p>
 
-        <div class="miss-list">
+      <p>
+        💬 Tmhara mujhse baatein karna
+      </p>
 
-          <span>🥺 Tmhari awaz</span>
+      <p>
+        🤝 Mere hathon mein tumhare hath
+      </p>
 
-          <span>💬 Tmhara mujhse baatein karna</span>
+      <p>
+        ❤️ Tmhara mere paas hona aur mujhse baatein karte rehna
+      </p>
 
-          <span>🤝 Mere hathon mein tumhare hath</span>
+      <p>
+        😂❤️ Mere mini notes pe dil khol ke hansna
+      </p>
 
-          <span>❤️ Tmhara mere paas hona aur mujhse baatein karte rehna</span>
-
-          <span>😂❤️ Mere mini notes pe dil khol ke hansna</span>
-
-        </div>
-
-      </div>
+      <br>
 
       <p>
         These are the little things I miss...
+      </p>
+
+      <p>
         more than I can ever explain. 🥹❤️
       </p>
 
@@ -508,34 +530,43 @@
 
       <h2>If You Were Here...</h2>
 
-      <div class="memory-grid">
+      <div class="if-here-grid">
 
-        <div class="memory-card">
-          <img src="image2.jpg" alt="Cuddling memory">
+        <div class="if-here-card">
+          <img src="image2.jpg" alt="Cuddling">
           <p>Cuddling... 🥹</p>
         </div>
 
-        <div class="memory-card">
-          <img src="image3.jpg" alt="Couple memory">
+        <div class="if-here-card">
+          <img src="image3.jpg" alt="Just us together">
           <p>Just us together. 🤍</p>
         </div>
 
-        <div class="memory-card">
-          <img src="image11.jpg" alt="Heart memory">
+        <div class="if-here-card">
+          <img src="image11.jpg" alt="Holding the heart">
           <p>Holding the heart... ❤️</p>
         </div>
 
-        <div class="memory-card">
-          <img src="image12.jpg" alt="Flower memory">
+        <div class="if-here-card">
+          <img src="image12.jpg" alt="Little flower moment">
           <p>That little flower moment... 🌸</p>
         </div>
 
       </div>
 
       <p>
-        Firstly I will hug you tightly 🤗❤️<br>
-        Kiss your hand... 💋<br>
-        hold it a little tighter... ❤️<br>
+        Firstly I will hug you tightly 🤗❤️
+      </p>
+
+      <p>
+        Kiss your hand... 💋
+      </p>
+
+      <p>
+        hold it a little tighter... ❤️
+      </p>
+
+      <p>
         and maybe steal a kiss. 🥹
       </p>
 
@@ -556,7 +587,10 @@
       <h2>I Just Want You To Be With Me ❤️</h2>
 
       <p>
-        Not only today.<br>
+        Not only today.
+      </p>
+
+      <p>
         Not only on your birthday.
       </p>
 
@@ -580,6 +614,10 @@
 
       <h2>Your Birthday Cake!</h2>
 
+      <p>
+        Okayyy... birthday boy, make a wish. 🥹❤️
+      </p>
+
       <div class="cake-area">
 
         <div class="candles-top" id="candles">
@@ -593,19 +631,19 @@
       </div>
 
       <p id="candleText">
-        Make a wish... ✨
+        Close your eyes and make a wish... ✨
       </p>
 
       <button id="candleButton" onclick="lightCandles()">
-        Blow the candles 🎂
+        Blow the candles 🕯️
       </button>
 
       <button
         id="danceButton"
-        style="display: none;"
         onclick="nextScene(9)"
+        style="display: none;"
       >
-        Continue... 🎶
+        One more thing... 👀❤️
       </button>
 
     </div>
@@ -639,7 +677,28 @@
         Just one little dance. 🤍
       </p>
 
+      <div class="song-message">
+
+        <p>
+          Now… close your eyes for a little while. ❤️
+        </p>
+
+        <p>
+          Don’t click anything… just listen.
+        </p>
+
+        <p>
+          Imagine it’s just you and me, together… no distance, no miles. 🥹
+        </p>
+
+        <p>
+          Let the song finish… because I have something waiting for you after this. 💌
+        </p>
+
+      </div>
+
       <div id="letterPrompt" style="display: none;">
+
         <p>
           There's something I wrote for you... 💌
         </p>
@@ -647,6 +706,7 @@
         <button onclick="nextScene(10)">
           Read it... 💌
         </button>
+
       </div>
 
     </div>
@@ -664,14 +724,12 @@
       <img
         src="image3.jpg"
         alt="Our memory"
-        class="single-image"
+        class="final-image"
       >
 
       <div class="letter">
 
-        <p>
-          My Kharoos,
-        </p>
+        <p>My Kharoos,</p>
 
         <p>
           I don't always know how to say everything
@@ -714,17 +772,17 @@
   </section>
 
 
-  <!-- SCENE 11 — FINAL -->
+  <!-- SCENE 11 -->
   <section class="scene" id="scene11">
     <div class="container">
 
-      <div class="heart">🎂❤️</div>
+      <div class="heart">🥹❤️</div>
 
-      <h1>Happy Birthday, My Kharoos! ❤️</h1>
+      <h2>Happy Birthday, My Kharoos! ❤️</h2>
 
       <img
         src="image5.jpg"
-        alt="Artist Artist memory"
+        alt="ARTIST / ARTIST"
         class="final-image"
       >
 
@@ -764,41 +822,58 @@
 
     let musicStarted = false;
 
+
     function startBirthdayMusic() {
+
       if (!musicStarted) {
+
         birthdayMusic.currentTime = 0;
         birthdayMusic.volume = 0.35;
 
         birthdayMusic.play().then(() => {
+
           musicStarted = true;
+
         }).catch(() => {});
+
       }
+
     }
 
 
     function fadeOutBirthdayMusic(callback) {
+
       let volume = birthdayMusic.volume;
 
       const fade = setInterval(() => {
+
         volume -= 0.05;
 
         if (volume <= 0) {
+
           volume = 0;
           birthdayMusic.volume = 0;
           birthdayMusic.pause();
+
           clearInterval(fade);
 
           if (callback) {
             callback();
           }
+
         } else {
+
           birthdayMusic.volume = volume;
+
         }
+
       }, 100);
+
     }
 
 
     function playLoveSong() {
+
       const prompt = document.getElementById("letterPrompt");
 
       prompt.style.display = "none";
@@ -807,17 +882,22 @@
       loveSong.volume = 0.75;
 
       loveSong.onended = () => {
+
         prompt.style.display = "block";
+
       };
 
       loveSong.play().catch(() => {});
+
     }
 
 
     function stopLoveSong() {
+
       loveSong.pause();
       loveSong.currentTime = 0;
       loveSong.onended = null;
+
     }
 
 
@@ -826,19 +906,25 @@
       const scenes = document.querySelectorAll(".scene");
 
       scenes.forEach(scene => {
+
         scene.classList.remove("active");
+
       });
+
 
       const next = document.getElementById("scene" + number);
 
       if (next) {
+
         next.classList.add("active");
 
         window.scrollTo({
           top: 0,
           behavior: "smooth"
         });
+
       }
+
 
       if (number === 9) {
 
@@ -847,14 +933,20 @@
         prompt.style.display = "none";
 
         fadeOutBirthdayMusic(() => {
+
           playLoveSong();
+
         });
 
       }
 
+
       if (number === 10 || number === 11) {
+
         stopLoveSong();
+
       }
+
     }
 
 
@@ -865,13 +957,16 @@
       const button = document.getElementById("candleButton");
       const danceButton = document.getElementById("danceButton");
 
+
       candles.innerHTML = "✨";
 
-      text.innerHTML = "Yayyy! You made a wish. 🥹❤️";
+      text.innerHTML =
+        "Yayyy! You made a wish. 🥹❤️";
 
       button.style.display = "none";
 
       danceButton.style.display = "inline-block";
+
     }
 
 
@@ -883,16 +978,21 @@
 
       heart.innerHTML = "❤️";
 
-      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.left =
+        Math.random() * 100 + "vw";
 
       heart.style.animationDuration =
         (5 + Math.random() * 4) + "s";
 
       document.body.appendChild(heart);
 
+
       setTimeout(() => {
+
         heart.remove();
+
       }, 10000);
+
     }
 
 
